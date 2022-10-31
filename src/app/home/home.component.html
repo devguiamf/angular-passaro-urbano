@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="ofertas">
+    <h1>Destaques do dia</h1>
+    <h3>Aproveite as super ofertas que preparamos para você</h3>
+  </div>
+  <hr>
+  <div class="cards">
+    <mat-card class="card" *ngFor="let oferta of ofertas">
+      <img [src]="oferta.imagens[0].url" class="imgCard" alt="">
+      <h1>{{oferta.titulo}}</h1>
+      <h3>{{oferta.descricao_oferta}}</h3>
+      <h2>{{oferta.valor | currency : 'BRL'}}</h2>
+      <a href="#"><button>Ver Oferta</button></a>
+
+    </mat-card> <!-- primeiro for  -->
+  </div>
