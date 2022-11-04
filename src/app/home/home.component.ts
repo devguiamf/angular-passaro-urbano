@@ -1,3 +1,4 @@
+import { lastValueFrom } from 'rxjs';
 import { Oferta } from './../model/Oferta.model';
 import { Component, OnInit } from '@angular/core';
 import { OfertasService } from '../ofertas.service';
@@ -16,14 +17,15 @@ export class HomeComponent implements OnInit {
   constructor( private ofertasService : OfertasService) { }
 
   ngOnInit(): void {
-   this.ofertas = this.ofertasService.getOfertas();
+   //this.ofertas = this.ofertasService.getOfertas();
    
-   console.log(this.ofertas);
-   console.log(this.ofertas[0].imagens[0].url);
-
-   let teste:any
-    teste = this.ofertas[0].imagens[0]
-   console.log(teste.url)
+    lastValueFrom(this.ofertasService.getOfertas()) 
+    .then((ofertas: Oferta[]) => {
+      this.ofertas = ofertas
+    })
+   .catch((err: Error) => {
+    console.log(err);
+   })
    
   }
 

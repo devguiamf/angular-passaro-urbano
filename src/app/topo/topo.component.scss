@@ -16,7 +16,8 @@
 }
 .header2 {
     display: flex;
-    background: #006ACB;
+    background: rgb(0,50,159);
+    background: linear-gradient(90deg, rgba(0,50,159,1) 0%, rgba(84,151,221,0.8603816526610644) 100%);
     height: 50px;
 }
 

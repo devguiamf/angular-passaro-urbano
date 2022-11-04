@@ -1,5 +1,8 @@
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { RouterModule } from '@angular/router';
+
 
 import {CurrencyPipe} from '@angular/common'
 
@@ -11,22 +14,31 @@ import { HomeComponent } from './home/home.component';
 import { FooterComponent } from './footer/footer.component';
 
 import {MatToolbarModule} from '@angular/material/toolbar'
-import {MatCardModule} from '@angular/material/card'
+import {MatCardModule} from '@angular/material/card';
+import { DiversaoComponent } from './diversao/diversao.component';
+import { RestaurantesComponent } from './restaurantes/restaurantes.component'
+
+import { routes } from './app-routing.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     TopoComponent,
     HomeComponent,
-    FooterComponent
+    FooterComponent,
+    DiversaoComponent,
+    RestaurantesComponent
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatToolbarModule,
-    MatCardModule
-  ],
+    MatCardModule,
+    HttpClientModule,
+    RouterModule.forRoot(routes)
+    ],
   providers: [CurrencyPipe],
   bootstrap: [AppComponent]
 })
