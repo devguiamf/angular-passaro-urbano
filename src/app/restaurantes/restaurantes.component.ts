@@ -1,3 +1,6 @@
+import { lastValueFrom } from 'rxjs';
+import { OfertasService } from './../ofertas.service';
+import { Oferta } from './../model/Oferta.model';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +10,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RestaurantesComponent implements OnInit {
 
-  constructor() { }
+  restaurante? : Oferta[]
+
+  constructor(private ofertaService: OfertasService) { }
 
   ngOnInit(): void {
+
+    lastValueFrom(this.ofertaService.getOfertasCategoria('restaurante'))
+    .then((restaurante: Oferta[]) => {
+      this.restaurante = restaurante
+      
+    }).catch((err : Error) =>{
+      console.log(err);
+      
+    })
   }
 
 }

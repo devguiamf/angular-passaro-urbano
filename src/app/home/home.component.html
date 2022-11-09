@@ -10,7 +10,7 @@
       <h1>{{oferta.titulo}}</h1>
       <h3>{{oferta.descricao_oferta}}</h3>
       <h2>{{oferta.valor | currency : 'BRL'}}</h2>
-      <a href="#"><button>Ver Oferta</button></a>
+      <a [routerLink]="['/oferta', oferta.id]"><button>Ver Oferta</button></a>
 
     </mat-card> <!-- primeiro for  -->
   </div>

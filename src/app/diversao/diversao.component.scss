@@ -29,6 +29,14 @@ img {
 
 .anuncio{
     display: flex;
+    margin-bottom: 20px;
+    padding: 10px;
+    transition: 300ms;
+}
+
+
+.anuncio:hover{
+    background-color: #cfdff1;
 }
 
 .anuncioRes{

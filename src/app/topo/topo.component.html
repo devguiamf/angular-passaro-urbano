@@ -4,9 +4,23 @@
     <span><a href=""><img src="../../assets/carrinho.png" alt=""></a></span>
   </mat-toolbar-row>
   <mat-toolbar-row class="header2">
-    <a routerLink="/">Home</a>
-    <a routerLink="/restaurante">Restaurantes</a>
-    <a routerLink="/diversao">Diversão</a>
+    <div class="container">
+      <div>
+        <ul>
+          <li><a routerLink="/">Home</a></li>
+          <li><a routerLink="/restaurante">Restaurantes</a></li>
+          <li><a routerLink="/diversao">Diversão</a></li>
+
+        </ul>
+      </div>
+
+      <div class="containerInput">
+        <input class="input"  #termoDaPesquisa type="text" placeholder="Pesquisar ofertas" (keyup)="pesquisa(termoDaPesquisa.value)">
+        <ul>
+          <li *ngFor="let oferta of oferta2">{{oferta.titulo}}</li>
+        </ul>
+      </div>
+         
+    </div>
   </mat-toolbar-row>
-  
 </mat-toolbar>
