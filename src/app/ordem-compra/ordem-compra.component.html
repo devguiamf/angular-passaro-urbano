@@ -1,0 +1,246 @@
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+<!-- <div class="container">
+  <div class="ordem-compra">
+    <form>
+    
+      <h5>Sua Compra</h5>
+      <hr />
+
+      <div class="compraProduto" style="background: #FAFAFA; padding: 20px; border-bottom: solid 1px #F0F0F0">
+        <div class="produtoImg">
+          <img src="/assets/ofertas/1/img1.jpg" class="img-fluid">
+        </div>
+        <div class="form-group col-sm-6">
+          Super Burger
+          <br />
+          Rodízio de Mini-hambúrger com opção de entrada.
+        </div>
+
+        <div>
+          <div class="row">
+            <div class="col">
+              <button type="button" class="btn btn-link">-</button>
+              1
+              <button type="button" class="btn btn-link">+</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group col-sm-3 d-flex justify-content-end">
+          29.90
+        </div>
+      </div>
+      
+      <div class="compraProduto" style="background: #FAFAFA; padding: 20px; border-bottom: solid 1px #F0F0F0">
+        <div class="produtoImg">
+          <img src="/assets/ofertas/4/img1.jpg" class="img-fluid">
+        </div>
+        <div class="form-group col-sm-6">
+          Estância das águas
+          <br />
+          Diversão garantida com piscinas, trilhas e muito mais.
+        </div>
+
+        <div>
+          <div class="row">
+            <div class="col">
+              <button type="button" class="btn btn-link">-</button>
+              1
+              <button type="button" class="btn btn-link">+</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group col-sm-3 d-flex justify-content-end">
+          31.90
+        </div>
+      </div>
+      
+      <div class="form-row">
+        <div class="form-group col d-flex justify-content-end">
+          <h4>Total do pedido: 61.80</h4>
+        </div>
+      </div>
+      <br />
+
+
+      <h5>Dados de entrega</h5>
+      <hr />
+
+      <div class="form-row">
+
+        <div class="form-group col-md-6">
+          <input type="text" class="form-control is-invalid" placeholder="Endereço" autocomplete="off" minlength="5" required>
+          <div class="invalid-feedback">Endereço inválido</div>
+        </div>
+
+        <div class="form-group col-md-2">
+          <input type="text" class="form-control is-valid" placeholder="Número" autocomplete="off" minlength="1" required>
+          <br />
+          <small class="form-text text-muted">Ok</small>
+        </div>
+
+        <div class="form-group col-md-4">
+          <input type="text" class="form-control" placeholder="Complemento" autocomplete="off">
+        </div>
+
+      </div>
+      <br />
+
+      <h5>Dados de pagamento</h5>
+      <hr />
+
+      <div class="form-row">
+          
+        <div class="form-group col-md-3">
+          <select class="form-control is-invalid">
+            <option>Selecione uma opção</option>
+            <option>Dinheiro</option>
+            <option>Débito</option>
+          </select>
+
+          <div class="invalid-feedback">Selecione uma forma de pagamento</div>
+        </div>
+      </div>
+
+      <hr />
+      <button type="submit" class="btn btn-primary btn-lg">Cofirmar compra</button>
+    </form>
+  </div>
+</div> -->
+
+<div class="container">
+
+  <h1>Sua Compra</h1>
+  <hr>
+
+  <div class="ordemCompra">
+    <mat-card class="cardProduto mat-elevation-z6">
+      <div class="produto">
+        <div>
+          <img src="/assets/ofertas/1/img1.jpg" class="img-fluid">
+        </div>
+        <div class="descrição">
+          <h1>Super Burguer</h1>
+          <h3>Rodízio de Mini-hambúrger com opção de entrada.</h3>
+        </div>
+
+      </div>
+
+
+      <div class="botões">
+        <button class="fab-button">
+          <mat-icon class="teste">minimize</mat-icon>
+        </button>
+        <span class="valor">1</span>
+        <button class="fab-button">
+          <mat-icon>add</mat-icon>
+        </button>
+      </div>
+      <div class="preco">
+        <h1>R$29.90</h1>
+      </div>
+    </mat-card>
+
+    <mat-card class="cardProduto mat-elevation-z6">
+      <div class="produto">
+        <div>
+          <img src="/assets/ofertas/4/img1.jpg" class="img-fluid">
+        </div>
+        <div class="descrição">
+          <h1>Estância das águas</h1>
+          <h3>Diversão garantida com piscinas, trilhas e muito mais.</h3>
+        </div>
+
+      </div>
+
+
+      <div class="botões">
+        <button class="fab-button">
+          <mat-icon class="teste">minimize</mat-icon>
+        </button>
+        <span class="valor">1</span>
+        <button class="fab-button">
+          <mat-icon>add</mat-icon>
+        </button>
+      </div>
+      <div class="preco">
+        <h1>R$31.90</h1>
+      </div>
+    </mat-card>
+  </div>
+
+  <hr>
+  <div class="valorTotal">
+
+    <mat-card class="cardValorTotal mat-elevation-z6">
+      <h1>Valor Total do pedido: 61.80 </h1>
+    </mat-card>
+  </div>
+
+  <div class="form">
+    <div>
+      <h1>Dados da Entrega</h1>
+      <hr>
+    </div>
+
+    <div class="inputs1">
+      <form [formGroup]="formulario">
+        <div class="teste3">
+          <div>
+            <mat-form-field class="fomularioMail" appearance="fill">
+              <mat-label>Endereço</mat-label>
+              <input matInput formControlName="endereco" type="email" [(ngModel)]="pedido.endereco">
+            </mat-form-field>
+            <div class="validacao"
+              *ngIf="formulario.get('endereco')?.errors?.['required'] && formulario.get('endereco')?.touched">
+              Endereco obrigatório
+            </div>
+          </div>
+
+
+          <div>
+            <mat-form-field class="fomularioNum" appearance="fill">
+              <mat-label>numero</mat-label>
+              <input formControlName="numero" type="text" matInput [(ngModel)]="pedido.numero">
+            </mat-form-field>
+            <div class="validacao"
+              *ngIf="formulario.get('numero')?.errors?.['required'] && formulario.get('numero')?.touched">
+              numero obrigatório
+            </div>
+          </div>
+
+
+          <mat-form-field class="fomularioCom" appearance="fill">
+            <mat-label>Complemento</mat-label>
+            <input formControlName="complemento" type="text" matInput [(ngModel)]="pedido.complemento">
+          </mat-form-field>
+
+        </div>
+        <div class="pagamento">
+          <div>
+            <h1>Dados do Pagamento</h1>
+            <hr>
+          </div>
+          <mat-form-field appearance="fill">
+            <mat-label>Formas de pagamento</mat-label>
+            <mat-select formControlName="pagamento">
+              <mat-option *ngFor="let pgmt of formaPgmt" [value]="pgmt.value" (click)="selecionaPgmt(pgmt.viewValue)">
+                {{pgmt.viewValue}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <button mat-button id="button" [disabled]="!formulario.valid" (click)="finalizarCompra()">Finalizar
+            Compra</button>
+        </div>
+      </form>
+    </div>
+
+  </div>
+
+
+
+
+</div>

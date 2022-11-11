@@ -1,7 +1,7 @@
 import { lastValueFrom } from 'rxjs';
 import { OfertasService } from './../../ofertas.service';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Params } from '@angular/router';
 
 @Component({
   selector: 'app-como-usar',
@@ -14,13 +14,16 @@ export class ComoUsarComponent implements OnInit {
   constructor(private route : ActivatedRoute, private ofertaService: OfertasService) { }
 
   ngOnInit(): void {
-    this.route.parent?.snapshot.params['id']
 
-    lastValueFrom(this.ofertaService.getComoUsar(this.route.parent?.snapshot.params['id']))
+    this.route.parent?.params.subscribe((parametro: any) =>{
+      lastValueFrom(this.ofertaService.getComoUsar(parametro.id))
       .then((resposta : any) => {
         this.comoUsar = resposta[0].descricao        
         
       })
+    })
+
+    
     
   }
   

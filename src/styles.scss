@@ -1,3 +1,25 @@
+@use '@angular/material' as mat; // usa os arquivos da pasta e nomeia de mat
+
+@include mat.core(); //inclui o core que esta dentro da pasta material
+
+$my-primary: mat.define-palette(mat.$blue-palette, 900); // definindo a paleta da cor primaria
+$my-accent: mat.define-palette(mat.$orange-palette, 900); // definindo a paleta da cor contraste
+$my-secondary: mat.define-palette(mat.$grey-palette, 300);
+$my-warn: mat.define-palette(mat.$red-palette); // definindo a paleta da cor 'avisar'
+
+$my-theme: mat.define-light-theme(( //usando as paletas com o thema claro
+ color: (
+   primary: $my-primary,
+   accent: $my-accent,
+   warn: $my-warn,
+ )
+));
+
+@include mat.all-component-themes($my-theme);
+
+
+
+
 body{
     padding: 0;
 }
@@ -29,3 +51,8 @@ h3 {
     font-size: 20px
 }
 
+.msg-sucess{
+    background-color: darkgreen;
+    color: white;
+    font: 1.5rem;
+}

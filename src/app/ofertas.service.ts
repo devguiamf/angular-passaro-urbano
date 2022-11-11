@@ -1,6 +1,6 @@
 import { API_URL } from './app.api';
 import { Oferta } from './model/Oferta.model';
-import { HttpClient, HttpClientJsonpModule, HttpResponse, HttpEventType } from '@angular/common/http';
+import { HttpClient} from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map, Observable, retry} from 'rxjs'
 

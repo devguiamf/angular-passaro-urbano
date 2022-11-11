@@ -66,9 +66,19 @@ input{
     width: 370px;
     color: black;
     justify-content: flex-end;
+    list-style: none;
 }
 
 .containerInput li{
-    border: solid 2px black;
+   
     width: 370px;
+    list-style: none;
+}
+
+.containerInput ul li a {
+    color: black;
+}
+
+.containerInput ul li a:hover {
+    color: grey;
 }

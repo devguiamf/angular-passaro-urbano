@@ -1,4 +1,3 @@
-import { FormControl } from '@angular/forms';
 import { Oferta } from './../model/Oferta.model';
 import { Observable, Subject, switchMap, debounceTime, of, distinctUntilChanged, catchError, startWith, map, lastValueFrom } from 'rxjs';
 import { OfertasService } from './../ofertas.service';
@@ -18,15 +17,15 @@ export class TopoComponent implements OnInit {
 
   ofertas!: Observable<Oferta[]>
   private subjectPesquisa: Subject<string> = new Subject<string>()
-  public oferta2!: Oferta[]
+
 //##############################################################################################################################################
 
-  constructor(private ofertaService: OfertasService) { }
+  constructor(
+    private ofertaService: OfertasService) { }
 
 //##############################################################################################################################################
 
   ngOnInit(): void {
-
     //===========================================================================================================
     this.ofertas = this.subjectPesquisa.pipe(
       debounceTime(1000), // switchMap vai ser executado após 1 segundo
@@ -44,13 +43,7 @@ export class TopoComponent implements OnInit {
       console.log(erro);      
       return of<Oferta[]>([])
     })
-
-    this.ofertas.subscribe((ofertas: Oferta[]) =>{
-      this.oferta2 = ofertas
-      console.log(this.oferta2);
-      
-      
-    })
+  
     //===========================================================================================================
   }
 
@@ -65,5 +58,7 @@ export class TopoComponent implements OnInit {
 
 //##############################################################################################################################################
 
-
+  limpaPesquisa(): void{
+    this.subjectPesquisa.next('')
+}
 }

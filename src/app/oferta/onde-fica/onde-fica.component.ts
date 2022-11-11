@@ -13,16 +13,19 @@ export class OndeFicaComponent implements OnInit {
 
   ondeFica : string = ''
 
-  constructor(private route : ActivatedRoute, private ofertaService : OfertasService) {
+  constructor(
+    private route : ActivatedRoute, 
+    private ofertaService : OfertasService) 
+  { }
 
-    lastValueFrom(this.ofertaService.getOndeFica(this.route.parent?.snapshot.params['id']))
+  ngOnInit(): void {
+    this.route.parent?.params.subscribe((parametro: any) =>{ 
+      lastValueFrom(this.ofertaService.getOndeFica(parametro.id))
       .then((resposta : any) =>{
         this.ondeFica = resposta[0].descricao
       })
 
-   }
-
-  ngOnInit(): void {
+    })
   }
 
 }

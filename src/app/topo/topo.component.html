@@ -17,7 +17,9 @@
       <div class="containerInput">
         <input class="input"  #termoDaPesquisa type="text" placeholder="Pesquisar ofertas" (keyup)="pesquisa(termoDaPesquisa.value)">
         <ul>
-          <li *ngFor="let oferta of oferta2">{{oferta.titulo}}</li>
+          <li *ngFor="let lista of ofertas | async">
+            <a [routerLink]="['/oferta', lista.id]" (click)="limpaPesquisa()"> {{lista.titulo}} </a>
+          </li>
         </ul>
       </div>
          

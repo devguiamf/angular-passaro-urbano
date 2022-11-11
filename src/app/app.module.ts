@@ -5,20 +5,17 @@ import { RouterModule, RouterLinkActive } from '@angular/router';
 
 
 import {CurrencyPipe} from '@angular/common'
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TopoComponent } from './topo/topo.component';
 import { HomeComponent } from './home/home.component';
 import { FooterComponent } from './footer/footer.component';
-
 import {MatToolbarModule} from '@angular/material/toolbar'
 import {MatCardModule} from '@angular/material/card';
 import { DiversaoComponent } from './diversao/diversao.component';
 import { RestaurantesComponent } from './restaurantes/restaurantes.component'
 import {MatTabsModule} from '@angular/material/tabs';
-
 import { routes } from './app-routing.module';
 import { OfertaComponent } from './oferta/oferta.component';
 import { OndeFicaComponent } from './oferta/onde-fica/onde-fica.component';
@@ -27,6 +24,12 @@ import { MatInputModule } from '@angular/material/input';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatSelectModule} from '@angular/material/select';
+import { DescricaoReduzida } from './util/descricao-reduzida-pipe';
+import { OrdemCompraComponent } from './ordem-compra/ordem-compra.component';
+import {MatButtonModule} from '@angular/material/button';
+import {MatIconModule} from '@angular/material/icon';
+import {MatSnackBarModule} from '@angular/material/snack-bar'
+
 
 
 @NgModule({
@@ -38,7 +41,8 @@ import {MatSelectModule} from '@angular/material/select';
     DiversaoComponent,
     RestaurantesComponent,
     OfertaComponent,
-    OndeFicaComponent
+    OndeFicaComponent,
+    OrdemCompraComponent
     
   ],
   imports: [
@@ -56,9 +60,12 @@ import {MatSelectModule} from '@angular/material/select';
     FormsModule,
     MatSelectModule,
     ReactiveFormsModule,
-    MatInputModule
+    MatInputModule,
+    MatButtonModule,
+    MatIconModule,
+    MatSnackBarModule
 ],
-  providers: [CurrencyPipe],
+  providers: [CurrencyPipe,DescricaoReduzida],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
